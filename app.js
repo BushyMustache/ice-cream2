@@ -66,6 +66,11 @@ try {
 
     console.log('New order submitted:', order);
 
+    const customerName = order.name || 'Guest'; 
+    const email = order.email || null;
+    const flavor = order.flavor || null;
+    const cone = order.cone || null;
+
     order.toppings = Array.isArray(order.toppings) ?
     order.toppings.join(', ') : "";
 
@@ -73,7 +78,7 @@ try {
                  VALUES (?, ?, ?, ?, ?);`;
 
     const params = [
-        order.customer,
+        order.name,
         order.email,
         order.flavor,
         order.cone,
