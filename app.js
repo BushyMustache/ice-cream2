@@ -49,8 +49,14 @@ app.get('/', (req,res)=> {
      res.render('home');
    // res.send('welcom to our ice cream shop')
 });
-app.get('/admin', (req, res) => {
-  res.render('admin', { orders });
+app.get('/admin', async (req, res) => {
+    try {
+        const [orders] = await pool.query('SELECT * FROM orders ORDER BY timestamp DESC');
+        res.render('admin', { orders });
+    } catch (err) {
+        console.error('Database error:', err);
+        res.status(500).send('Error loading orders: ' + err.message);
+    }
 });
 
 app.post('/submit-order', (req, res) => {
