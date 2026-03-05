@@ -16,6 +16,10 @@ main {
   justify-content: center;
   position: relative;
 }
+footer {
+  text-align: center;
+  margin-bottom: 1rem;
+}
 
 h1 {
   text-align: center;
@@ -75,9 +79,116 @@ textarea {
 }
 
 #ice-cream-image {
-  max-width: 300px;
-  max-height: 300px;
+  max-width: 200px;
+  max-height: 200px;
   position: absolute;
   right: 0;
+  border-radius: 300rem;
   bottom: 10rem;
 }
+
+.error {
+  color: red;
+  font-weight: bold;
+  display: none;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+body {
+    background-color: #6a5acd;
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Common width for all containers */
+h1, p, ul, a[href="/"] {
+    width: 100%;
+    max-width: 480px;
+    box-sizing: border-box;
+}
+
+/* --- BOX 1: THE THANK YOU HEADER --- */
+h1 {
+    background-color: white;
+    padding: 30px;
+    border-radius: 20px; /* Fully rounded box */
+    margin: 0 0 20px 0; /* Gap below the box */
+    font-size: 24px;
+    text-align: center;
+    color: #333;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+/* --- BOX 2: THE DETAILS BOX (P + UL JOINED) --- */
+p {
+    background-color: white;
+    margin: 0; /* No margin so it touches the UL */
+    padding: 30px 40px 10px 40px;
+    border-radius: 20px 20px 0 0; /* Rounded top only */
+    color: #666;
+    font-size: 14px;
+    text-align: center;
+    font-weight: 500;
+}
+
+ul {
+    background-color: white;
+    margin: 0 0 25px 0; /* Gap before the button */
+    padding: 10px 40px 30px 40px;
+    border-radius: 0 0 20px 20px; /* Rounded bottom only */
+    list-style: none;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+/* List Item Styling */
+ul li {
+    padding: 15px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+ul li:last-child {
+    border-bottom: none;
+}
+
+/* Labels */
+ul li::before {
+    display: block;
+    font-weight: 700;
+    color: #2ecc71;
+    font-size: 11px;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+}
+
+ul li:nth-child(1)::before { content: "Flavor"; }
+ul li:nth-child(2)::before { content: "Cone Type"; }
+ul li:nth-child(3)::before { content: "Toppings"; }
+ul li:nth-child(4)::before { content: "Additional Comments"; }
+
+/* --- THE BUTTON --- */
+a[href="/"] {
+    display: block;
+    background-color: #4caf50;
+    color: white;
+    text-decoration: none;
+    padding: 16px;
+    border-radius: 12px;
+    font-weight: 700;
+    text-align: center;
+    transition: transform 0.2s;
+}
+
+a[href="/"]:hover {
+    transform: translateY(-2px);
+}
+
+/* Footer Admin Link */
+footer { margin-top: 20px; }
+footer a { color: rgba(255, 255, 255, 0.7); text-decoration: none; font-size: 13px; }

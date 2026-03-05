@@ -4,14 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ice Cream Order Form</title>
-    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <link rel="stylesheet" type="text/css" href="/styles/styles.css" />
     <link rel="icon" href="imgs/favicon.ico" type="image/x-icon" />
+    <!-- <script src="/public/js/app.js" defer></script> -->
+    <script src="/js/ice-cream.js" defer></script>
   </head>
 
   <body>
     <main>
       <!-- Form -->
-      <form id="ice-cream-form" action="#" method="get">
+      <form id="ice-cream-form" action="/submit-order" method="post">
         <h1>Ice Cream Order Form</h1>
         <img
           src="imgs/ice-cream.jpg"
@@ -22,16 +24,20 @@
         <fieldset>
           <legend class="pinformation">Personal Information</legend>
           <label for="name"> Name:</label>
-          <input type="text" id="name" name="name" required />
+          <span id="name-error" class="error">Name is Required</span>
+          <input type="text" id="name" name="name" />
 
           <label for="email">Email:</label>
-          <input type="email" id="email" name="email" required />
+          <span id="email-error" class="error"> valid Email is required</span>
+          <input type="email" id="email" name="email"/>
         </fieldset>
 
         <!-- Order Details -->
         <fieldset>
           <legend>Order Details</legend>
+          
           <select id="flavor" name="flavor">
+            <span id="flavor-error" class="error"></span>
             <option value="" disabled selected>Select Ice Cream Flavor</option>
             <option value="vanilla">Vanilla</option>
             <option value="chocolate">Chocolate</option>
@@ -42,8 +48,10 @@
 
           <br />
           <label>Choose your cone:</label>
+          <span id = "cone-error" class="error">Please select a cone or cup</span>
           <br />
           <label for="waffle-cone">
+            <span id = "cone-error" class="error"></span>
             <input
               type="radio"
               id="waffle-cone"
@@ -60,6 +68,7 @@
             />Sugar Cone</label
           >
           <label for="cup">
+            <span id="cone-error" class="error"></span>
             <input type="radio" id="cup" name="cone" value="cup" /> Cup</label
           >
 
@@ -68,26 +77,28 @@
           <label>Toppings:</label>
           <br />
           <label for="sprinkles">
-            <input type="checkbox" id="sprinkles" name="sprinkles" />
+            <input type="checkbox" id="sprinkles" name="toppings" value="sprinkles" />
             Sprinkles</label
           >
           <label for="nuts">
-            <input type="checkbox" id="nuts" name="nuts" /> Nuts</label
+            <input type="checkbox" id="nuts" name="toppings" value="nuts" /> Nuts</label
           >
           <label for="cherry">
-            <input type="checkbox" id="cherry" name="cherry" /> Cherry</label
+            <input type="checkbox" id="cherry" name="toppings" value="cherry" /> Cherry</label
           >
           <label for="whipped">
-            <input type="checkbox" id="whipped" name="whipped" /> Whipped
+            <input type="checkbox" id="whipped" name="toppings" value="whipped-cream" /> Whipped
             Cream</label
           >
         </fieldset>
 
         <label for="comments">Additional Comments:</label>
         <textarea id="comments" name="comments"></textarea>
-
         <button type="submit" id="order-button">Submit Order</button>
       </form>
     </main>
+    <footer>
+      <a href = "/admin">View all orders</a>
+    </footer>
   </body>
 </html>
