@@ -66,23 +66,23 @@ try {
 
     console.log('New order submitted:', order);
 
-    const customerName = order.name || 'Guest'; 
+    const customerName = order.name || null; 
     const email = order.email || null;
     const flavor = order.flavor || null;
     const cone = order.cone || null;
 
-    order.toppings = Array.isArray(order.toppings) ?
+    const toppings = order.toppings = Array.isArray(order.toppings) ?
     order.toppings.join(', ') : "";
 
     const sql = `INSERT INTO orders(customer, email, flavor, cone, toppings)
                  VALUES (?, ?, ?, ?, ?);`;
 
     const params = [
-        order.name,
-        order.email,
-        order.flavor,
-        order.cone,
-        order.toppings
+        customerName,
+        email,
+        flavor,
+        cone,
+        toppings
     ];
     
     const result = await pool.execute(sql, params);
