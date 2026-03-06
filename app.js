@@ -71,8 +71,8 @@ try {
     const flavor = order.flavor || null;
     const cone = order.cone || null;
 
-    const toppings = order.toppings = Array.isArray(order.toppings) ?
-    order.toppings.join(', ') : "";
+    const toppings = Array.isArray(order.toppings) ?
+    order.toppings.join(', ') : order.toppings;
 
     const sql = `INSERT INTO orders(customer, email, flavor, cone, toppings)
                  VALUES (?, ?, ?, ?, ?);`;
